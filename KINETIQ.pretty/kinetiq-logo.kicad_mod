@@ -1,0 +1,21 @@
+(footprint "LOGO" (version 20221018) (generator "bitmap2component") (generator_version "10.0")
+  (layer "F.Cu")
+  (attr board_only exclude_from_pos_files exclude_from_bom)
+  (fp_text reference "G***" (at 0 0) (layer "F.SilkS")
+      (effects (font (size 1.5 1.5) (thickness 0.3)))
+    (uuid f728a650-0348-4069-9488-c10d7335c0a4)
+  )
+  (fp_text value "LOGO" (at 0.75 0) (layer "F.SilkS") hide
+      (effects (font (size 1.5 1.5) (thickness 0.3)))
+    (uuid e418e8e9-0baf-43ee-a169-315a3bc3b1aa)
+  )
+  (fp_poly
+    (pts
+      (xy -2.043166 1.557494)
+      (xy -2.048748 1.563076)
+      (xy -2.054331 1.557494)
+      (xy -2.048748 1.551911)
+    )
+
+    (stroke (width 0.000000) (type solid)) (fill solid) (layer "F.SilkS") (uuid 16a406b0-cd58-40c3-ae0d-125f6a4b941d))
+)
