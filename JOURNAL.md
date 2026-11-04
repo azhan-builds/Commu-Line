@@ -1,4 +1,12 @@
-RESEARCH AND SCHEMATICS
+---
+title: "Commu-Line"
+author: "azhan.builds"
+description: "A short description of your project"
+created_at: "2026-09-21"
+---
+
+
+# October 15: Research and schematics
 
 the first step for the project was to begin researching what the best components for our projects were, and before that we needed to understand the vision of the project and what features it must have. After understanding that and coming up with a plan, we finalised the hardware and moved on towards the schematics.
 
@@ -43,7 +51,7 @@ Let's assume that the node reaches someone who is in desperate need of help, now
 Next we also added a buzzer to alert nearby survivors of the presence of these nodes and can be used for various other purposes(the exact features will be discussed later in the firmware devlog). We are controlling the buzzer through a NPN transistor connecctedto GPIO33 of the esp32. The reason we use the transistor is because the esp32 cannot reliably supply enough current to run the buzzer. The transistor acts as a switch, which is controlled by esp32 GIO33, which then supplies the necessary current to the buzzer.
 ![](https://cdn.hackclub.com/01a1985e-b67a-7715-bb8f-0ee95295914e/Screenshot%202026-11-01%20235815.png)
 
-Now to identify is the Lora module and GPS are working properly and are transmitting properly, we added two leds. One led blinks when Ra02 sends a signal, the other does the similar for the GPS. They are connected to IO27 and IO13 respectively.
+Now to identify if the Lora module and GPS are working properly and are transmitting properly, we added two leds. One led blinks when Ra02 sends a signal, the other does the similar for the GPS. They are connected to IO27 and IO13 respectively.
 
 Now we need to measure the battery level using just ESP32. We will be needing two 100k ohm resistors. It is measured with a voltage divider feeding one of the ESP32's ADC pins. The ESP32 can only read voltages upto 3.3v, and a lion cell can go upto 4.2v, so two resistors scale it down. 
 We connect two resistors in series between battery positive and GND. The output is taken from the junction between them to  the ADC pins. A few more considerations and info will be discussed later.
@@ -62,10 +70,10 @@ After this, i made all the remaining connections and also updated the footprints
 
 Note: The schematics is not completely finished. In my next session, i might be moving towards PCB designing and i might add, remove or make some changes to the schematics, but i will make sure to mention it.
 
+**Total time spent: 3h 41min**
 
 
-
-PCB or printed circuit board.
+# October 17: Designing the PCB v1
 
 Having finished the schematics, the next natural step was PCB design. The choice of software again was Kicad. 
 
@@ -81,6 +89,9 @@ As i  was surfing through the internet, i saw a few things that made me realize 
 
 Component by component, i started routing and slowly i started to realize the  mistake. The problem was that a few GPIO pins were on the left side of the esp32, and making a connection there was a bit problematic as the esp32 was on the edge. I started using vias, so much so that for each connections i had to add 5-6 vias, which i knew would cause me problems later.
 
+**Total time spent: 4h**
+
+# October 18: Re arranging the PCB
 by the time i had only 11 connections left, i decided to not take risk and re arrange the components. Brought the esp32 in the middle, moved the dpad and oled to the left and pushed the gps to the right. Kept the lora module as it is. 
 ![](https://cdn.hackclub.com/01a1a2c9-c889-7805-98bc-68f1d1eda756/Screenshot%202026-11-04%20003017.png)
 
@@ -90,3 +101,5 @@ I then finally completed the PCB, made a few small tweaks off screen, nothing bi
 The next step is to clearly define the features i would like on these nodes, and then write the firmware. 
 
 ![](https://cdn.hackclub.com/01a1a2ce-cecb-7d30-8716-3edd92546f77/Screenshot%202026-11-04%20003650.png)
+
+**Total time spent: 4h 55min**
